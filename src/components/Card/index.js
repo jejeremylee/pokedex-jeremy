@@ -1,7 +1,7 @@
 import React from "react";
 import {CardContainer} from "./style.js";
 import Label from "../Label";
-import charizardImg from "../../charizard.png"
+import charizardImg from "../../assets/image/charizard.png";
 
 export default function Card(props){
        return(

@@ -40,18 +40,19 @@ font-weight: 600;
     justify content: flex-start;
     align-items: flex-start;
     width: 100%;
-    margin-left: 55px;
+   
 }
 
 .card-title{
     font-size: 48px;
+    margin-left: 20px;
 }
 
 .card-labels{
     width: 100%;
     display: flex;
     flex-direction: row;
- 
+    margin-left: 20px;
     align-items: center;
 }
 
@@ -67,12 +68,13 @@ font-weight: 600;
         width: 8rem;
     }
 
-    .card-desc{
-        margin-left: 32px;
-    }
-
     .card-title{
         font-size: 24px;
+        margin-left: 10px;
+    }
+
+    .card-labels{
+        margin-left: 10px;
     }
 }    
 `

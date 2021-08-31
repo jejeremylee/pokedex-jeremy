@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PokemonListPageContainer = styled.div`
+export const MyPokemonListPageContainer = styled.div`
 .page-container {
     display: flex;
     flex-direction: row;
