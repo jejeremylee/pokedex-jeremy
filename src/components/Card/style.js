@@ -38,10 +38,11 @@ font-weight: 600;
     flex-direction: column;
     justify content: flex-start;
     align-items: flex-start;
+    width: 100%;
+    margin-left: 55px;
 }
 
 .card-title{
-    margin-bottom: 5px;
     font-size: 48px;
 }
 
@@ -53,4 +54,24 @@ font-weight: 600;
     align-items: center;
 }
 
+
+@media(max-width: 429px){
+    .card-body{
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .card-image{
+        margin-bottom: 10px;
+        width: 8rem;
+    }
+
+    .card-desc{
+        margin-left: 32px;
+    }
+
+    .card-title{
+        font-size: 24px;
+    }
+}    
 `

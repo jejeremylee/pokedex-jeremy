@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import PokemonCard from './components/Card'
-import NavBar from './components/NavBar'
+import PokemonList from './containers/PokemonList'
+import PokemonDetail from './containers/PokemonDetail'
 
 function App() {
   return (
     <div className="App">
-     <NavBar/>
-     <PokemonCard/>
+      <PokemonDetail/>
     </div>
   );
 }

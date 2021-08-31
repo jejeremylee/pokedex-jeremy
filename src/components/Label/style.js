@@ -17,4 +17,12 @@ font-size: 18px;
 
 margin:3px;
 
+
+@media(max-width: 429px){
+    width: 3rem;
+    height: 1.5rem;
+    font-size: 12px;
+    border-radius:5px;
+
+}    
 `
