@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
 
-font-family: 'Montserrat', sans-serif;
 font-weight: 600;
 
 .card-body{
@@ -13,19 +12,21 @@ font-weight: 600;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 3px 10px gray;
-    background-color: #F0F0F0;
+    background-color: #FFFFFF;
     border-radius: 10px;
     padding-top: 12px;
     border-style: solid;
     border-width: medium;
     border-color: #F0F0F0;
-
 }
 
 .card-body:hover {
     border-color: #ED1614;
 }
 
+.card-body:active {
+    opacity: 0;
+  }
 
 .card-image{
     margin-bottom: 15px;

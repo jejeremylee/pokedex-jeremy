@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const NavBarContainer = styled.div `
 
-font-family: 'Montserrat', sans-serif;
 font-weight: bold;
 display: flex;
 justify-content: space-between;

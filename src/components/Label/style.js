@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const LabelContainer = styled.div`
 
-font-family: 'Montserrat', sans-serif;
 font-weight: 600;
 background-color: #EE8A2F;
 border-radius: 10px;
