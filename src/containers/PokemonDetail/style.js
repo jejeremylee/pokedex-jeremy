@@ -6,20 +6,20 @@ background-color:white;
 .back-button-container{
     display:flex;
     justify-content: flex-start;
-    align-items :flex-start; 
+    align-items: flex-start; 
 }
 
 .back-button{   
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
     background-color: Transparent;
     border:none;
     cursor:pointer;
     outline:none;
-    margin: 32px;
+    margin: 2rem;
 }
 
 .back-button:active {
@@ -32,23 +32,24 @@ background-color:white;
 
 .right-arrow-back-button{
     width: 2.5rem;
-    margin-right: 16px;
+    margin-right: 1rem;
 }
+
 .image-container{
-    width: 38rem;
-    margin-bottom: 15px;
+    width: 20rem;
+    margin-bottom: 1rem;
 }
 
 .page-container{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;   
+    align-items: center;   
 }
 
 .pokemon-name{
-    font-size:72px;
-    font-weight:bold;
+    font-size: 6rem;
+    font-weight: bold;
 }
 
 .pokemon-labels{
@@ -64,13 +65,13 @@ background-color:white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 900;
     background-color: Transparent;
-    border:none;
-    cursor:pointer;
-    outline:none;
-    margin:32px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 1.5rem;
 }
 
 .pokeball-catch-button{
@@ -90,8 +91,8 @@ background-color:white;
     flex-direction: column;
     justify-content:flex-start;
     align-items:flex-start;
-    width:75%;
-    font-size: 48px;
+    width:85%;
+    font-size: 3rem;
     font-weight: bold;
 }
 
@@ -100,10 +101,10 @@ background-color:white;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding: 16px;
+    padding: 1rem;
     width:100%;
     border-radius:20px;
-    margin-top:10px;
+    margin-top: 0.625rem;
 }
 
 .moves-list{
@@ -121,7 +122,7 @@ background-color:white;
 
 @media(max-width: 429px){
     .back-button{   
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: 600;
         margin: 16px;
     }
@@ -132,12 +133,12 @@ background-color:white;
     }
 
     .image-container{
-        width: 16rem;
-        margin-bottom: 10px;
+        width: 10rem;
+        margin-bottom: 0.625rem;
     }
 
     .pokemon-name{
-        font-size:48px;
+        font-size: 3rem;
     }
 
     .pokeball-catch-button{
@@ -145,11 +146,12 @@ background-color:white;
     }
 
     .catch-button{   
-        font-size: 24px;
+        font-size: 1.5rem;
+        margin: 1rem
     }
 
     .move-container{
-        font-size: 24px;
+        font-size: 1.5rem;
 
     }
 

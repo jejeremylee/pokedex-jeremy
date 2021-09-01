@@ -1,29 +1,52 @@
 import React from "react";
-import charizardImg from "../../assets/image/charizard.png";
+import { useParams } from "react-router-dom";
+import { useQuery } from '@apollo/client';
+import { PokemonDetailPageContainer } from "./style";
 import Label from "../../components/Label";
 import LeftArrow from "../../assets/image/left-arrow.svg";
 import PokeBall from "../../assets/image/pokeball.svg";
-import { PokemonDetailPageContainer } from "./style";
+import { formatName } from "../../utils/name_format.js";
+import { GET_POKEMON_DETAILS } from '../../utils/queries';
 
+
+const handleBack = () =>{
+    let path = `/pokemons`;
+    window.location.href = path
+}
 
 export default function PokemonDetail(){
+    const { name } = useParams()
+    const { loading, error, data } = useQuery(GET_POKEMON_DETAILS, {
+        variables: {
+            name: name,
+        }
+      });
+      
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
+    const pokeNameUpper = formatName(data.pokemon.name);
+
     return(
         <PokemonDetailPageContainer>
             <div className="back-button-container">
-                <button className="back-button"> 
+                <button className="back-button" onClick ={() => handleBack()}> 
                     <img src={LeftArrow} alt="back" className="right-arrow-back-button"/>
-                    Back
+                    <p>Back</p>
                 </button>
             </div>
             <div className="page-container">
-                <img alt="test" src={charizardImg} className="image-container"/>
+                <img alt={data.pokemon.name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.pokemon.id}.png`} className="image-container"/>
                 <div className="pokemon-desc">
                     <div className="pokemon-name">
-                        Pokemon
+                        {pokeNameUpper}
                     </div>
                     <div className="pokemon-labels">
-                        <Label/>
-                        <Label/>
+                    {
+                        data.pokemon.types.map((element, i) => (
+                            <Label key={i} data={element.type.name} />
+                            ))
+                    }
                     </div>
                 </div>
                 <div className="catch-button-container">
@@ -36,78 +59,11 @@ export default function PokemonDetail(){
                     Moves
                     <div className="moves-section">
                         <div className="moves-list">
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
-                            <Label/>
+                        {
+                        data.pokemon.moves.map((element, i) => (
+                            <Label key={i} data={element.move.name} labelType="move" />
+                            ))
+                    }
                         </div>
                     </div>
                 </div>

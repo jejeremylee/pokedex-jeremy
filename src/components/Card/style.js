@@ -14,14 +14,14 @@ font-weight: 600;
     box-shadow: 0 3px 10px gray;
     background-color: #FFFFFF;
     border-radius: 10px;
-    padding-top: 12px;
+    padding-top: 0.75rem;
     border-style: solid;
     border-width: medium;
     border-color: #F0F0F0;
 }
 
 .card-body:hover {
-    border-color: #ED1614;
+    border-color: #FDD23C;
 }
 
 .card-body:active {
@@ -29,8 +29,8 @@ font-weight: 600;
   }
 
 .card-image{
-    margin-bottom: 15px;
-    width: 15rem;
+    margin-bottom: 0.9rem;
+    width: 10rem;
  
 }
 
@@ -44,15 +44,15 @@ font-weight: 600;
 }
 
 .card-title{
-    font-size: 48px;
-    margin-left: 20px;
+    font-size: 40px;
+    margin-left: 0.9rem;
 }
 
 .card-labels{
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
+    margin-left: 0.625rem;
     align-items: center;
 }
 
@@ -64,17 +64,17 @@ font-weight: 600;
     }
 
     .card-image{
-        margin-bottom: 10px;
-        width: 8rem;
+        margin-bottom: 0.625rem;
+        width: 5rem;
     }
 
     .card-title{
         font-size: 24px;
-        margin-left: 10px;
+        margin-left: 0.45;
     }
 
     .card-labels{
-        margin-left: 10px;
+        margin-left: 0.3rem;
     }
 }    
 `
