@@ -6,8 +6,6 @@ export default function Label(props){
        const { labelType, data } = props;
 
        const color = typesColors[data];
-
-       console.log(color)
        return(
               <LabelContainer labelType={labelType} color={color}>
                      {data}

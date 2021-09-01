@@ -1,18 +1,23 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import {PaginationContainer} from "./style"
 
 
 export default function Pagination(props){
-    const [cards, setCards] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [cardsPerPage, setCardsPerPage] = useState(8);
+    const {cardsPerPage, totalCards, changePage} = props;
+    const totalPages = Math.ceil(totalCards/cardsPerPage);
 
-    const lastCardsIndex = currentPage * cardsPerPage;
-    const firstCardsIndex = lastCardsIndex - cardsPerPage;
-    
+    const pageNumbers = Array.from(Array(totalPages).keys(), x => x + 1); 
+
        return(
-           <div>
-
-           </div>
+           <PaginationContainer>
+                 {
+                     pageNumbers.map(num =>{
+                        return <button onClick={() => changePage(num)} className="pagination-link">
+                                {num}
+                            </button>
+                         
+                     })
+                 }
+           </PaginationContainer>
        );
 }

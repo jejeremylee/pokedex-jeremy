@@ -42,4 +42,4 @@ query pokemon($name: String!) {
       status
     }
   }
-`
+`;

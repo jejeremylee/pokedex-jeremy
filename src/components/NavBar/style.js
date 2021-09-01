@@ -12,8 +12,11 @@ padding-right: 2rem;
 background-color: #ED1614;
 border-radius: 0 0 20px 20px;
 
+box-shadow: 3px 4px 0 0 gray;
+
 @media(max-width: 429px){
     height: 5rem;
+    box-shadow: 1px 2px 0 0 gray;
 }   
 `
 export const NavBarLeft = styled.div `
@@ -24,7 +27,7 @@ display: flex;
 align-items: center;
 
 @media(max-width: 429px){
-    font-size: 30px;
+    font-size: 2rem;
 }   
 
 

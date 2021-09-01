@@ -1,20 +1,16 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 import { PokemonDetailPageContainer } from "./style";
 import Label from "../../components/Label";
 import LeftArrow from "../../assets/image/left-arrow.svg";
-import PokeBall from "../../assets/image/pokeball.svg";
+import PokeBall from "../../assets/image/pokeball.png";
 import { formatName } from "../../utils/name_format.js";
 import { GET_POKEMON_DETAILS } from '../../utils/queries';
 
 
-const handleBack = () =>{
-    let path = `/pokemons`;
-    window.location.href = path
-}
-
-export default function PokemonDetail(){
+export default function PokemonDetail(props){
+    const history = useHistory();
     const { name } = useParams()
     const { loading, error, data } = useQuery(GET_POKEMON_DETAILS, {
         variables: {
@@ -27,6 +23,10 @@ export default function PokemonDetail(){
 
     const pokeNameUpper = formatName(data.pokemon.name);
 
+    const handleBack = () =>{
+        history.goBack()
+    }
+
     return(
         <PokemonDetailPageContainer>
             <div className="back-button-container">
@@ -36,7 +36,7 @@ export default function PokemonDetail(){
                 </button>
             </div>
             <div className="page-container">
-                <img alt={data.pokemon.name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.pokemon.id}.png`} className="image-container"/>
+                <img alt={data.pokemon.name} src={ props.location.state} className="image-container"/>
                 <div className="pokemon-desc">
                     <div className="pokemon-name">
                         {pokeNameUpper}
