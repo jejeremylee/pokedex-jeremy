@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 import { PokemonDetailPageContainer } from "./style";
 import Label from "../../components/Label";
-import LeftArrow from "../../assets/image/left-arrow.svg";
-import PokeBall from "../../assets/image/pokeball.png";
+import Modal from "../../components/Modal";
+import LeftArrow from "../../assets/images/left-arrow.svg";
+import PokeBall from "../../assets/images/pokeball.png";
 import { formatName } from "../../utils/name_format.js";
 import { GET_POKEMON_DETAILS } from '../../utils/queries';
 
@@ -12,6 +13,20 @@ import { GET_POKEMON_DETAILS } from '../../utils/queries';
 export default function PokemonDetail(props){
     const history = useHistory();
     const { name } = useParams()
+
+    const fetchLocalStorage = () => {
+        
+        if (localStorage.getItem("myPokemons")===null) {
+            localStorage.setItem("myPokemons", JSON.stringify([]));
+          } 
+        JSON.parse(localStorage.getItem("myPokemons"));
+    }
+
+    useEffect(() => {
+        fetchLocalStorage()
+      }, [])
+
+
     const { loading, error, data } = useQuery(GET_POKEMON_DETAILS, {
         variables: {
             name: name,
@@ -50,10 +65,7 @@ export default function PokemonDetail(props){
                     </div>
                 </div>
                 <div className="catch-button-container">
-                    <button className="catch-button"> 
-                        <img src={PokeBall} alt="catch" className="pokeball-catch-button"/>
-                            Catch!
-                        </button>
+                    <Modal pokemonName={pokeNameUpper} buttonImg={PokeBall} pokemon={data.pokemon} pokemonImg={props.location.state}/>
                 </div>
                 <div className="move-container">
                     Moves
@@ -61,7 +73,7 @@ export default function PokemonDetail(props){
                         <div className="moves-list">
                         {
                         data.pokemon.moves.map((element, i) => (
-                            <Label key={i} data={element.move.name} labelType="move" />
+                            <Label key={i} data={element.move.name} labelType="Move" />
                             ))
                     }
                         </div>

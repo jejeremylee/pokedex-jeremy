@@ -1,7 +1,7 @@
  const typesColors = {
     normal: "#A8A77A",
     fire: "#EE8130",
-    water: "#6390F0",
+    water: "#0000FF",
     electric: "#F7D02C",
     grass: "#7AC74C",
     ice: "#96D9D6",

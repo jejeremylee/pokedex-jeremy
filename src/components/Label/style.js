@@ -4,14 +4,18 @@ export const LabelContainer = styled.div`
 
 font-weight: 600;
 background-color:${props => props.color ? props.color : "#88B6FB"};
+border-color: ${props => props.labelType === "nickname" ? "#EE8A2F" : "Transparent"};
+border-width: ${props => props.labelType === "nickname" ? "medium" : null};
+border-style: ${props => props.labelType === "nickname" ? "solid" : null};
 border-radius: 10px;
 display: flex;
 width: ${props => props.labelType ? "auto" : "5rem"};
 height: 2.5rem;
+padding: 0.5 rem;
 
 align-items: center;
 justify-content: center;
-color: white;
+color: ${props => props.labelType === "nickname" ? "black" : "white"};
 font-size: ${props => props.labelType ? "1.15rem" : "1.25rem"};
 margin: 0.3rem;
 

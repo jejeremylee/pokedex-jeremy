@@ -1,4 +1,4 @@
-import React, {useState}from "react";
+import React, { useState }from "react";
 import { useQuery } from '@apollo/client';
 import { PokemonListPageContainer } from "./style";
 import PokemonCard from '../../components/Card'
@@ -12,7 +12,7 @@ export default function PokemonList(){
     
     const [currentPage, setCurrentPage] = useState(1);
     const [cardsPerPage] = useState(12);
-
+    //localStorage.clear()
 
     const { loading, error, data } = useQuery(GET_POKEMONS,{
         variables: {
@@ -28,28 +28,29 @@ export default function PokemonList(){
     if (error) return <p>Error :(</p>;
 
     const cards = Object.entries(data.pokemons.results);
-
+    
     const lastCardsIndex = currentPage * cardsPerPage;
     const firstCardsIndex = lastCardsIndex - cardsPerPage;
     const currentCardInPage = cards.slice(firstCardsIndex, lastCardsIndex);
-    
 
     return(
-        <PokemonListPageContainer>
-            <NavBar/>
-            <div className="page-container">
-                <div className="pagination-container">
-                    <Pagination cardsPerPage={cardsPerPage} totalCards={cards.length} setCurrentPage={setCurrentPage}/>
+           
+            <PokemonListPageContainer>
+                <NavBar/>
+                <div className="page-container">
+                    <div className="pagination-container">
+                        <Pagination cardsPerPage={cardsPerPage} totalCards={cards.length} setCurrentPage={setCurrentPage}/>
+                    </div>
+                    <div className="card-container">    
+                    { 
+                    currentCardInPage.map((card) =>{
+                            return <PokemonCard key={card[1].id} pokemonName={card[1].name} pokemonImg={card[1].image} />
+                        })  
+    
+                    }
+                    </div> 
                 </div>
-                <div className="card-container">    
-                { 
-                   currentCardInPage.map((card) =>{
-                        return <PokemonCard key={card[1].id} pokemonName={card[1].name} pokemonImg={card[1].image} />
-                    })  
- 
-                }
-                </div> 
-            </div>
-        </PokemonListPageContainer>
+            </PokemonListPageContainer>
+
     );
 }

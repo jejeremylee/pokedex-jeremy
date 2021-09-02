@@ -5,7 +5,18 @@ import typesColors from "../../utils/types_colors"
 export default function Label(props){
        const { labelType, data } = props;
 
-       const color = typesColors[data];
+       let color = "";
+
+       if(labelType === "nickname"){
+              color = "#FFFFFF";
+       }
+       else if(labelType==="Move"){
+              color = "";
+       }
+       else{
+              color = typesColors[data];
+       }
+
        return(
               <LabelContainer labelType={labelType} color={color}>
                      {data}

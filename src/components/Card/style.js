@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
 
 font-weight: 600;
 
+
 .card-body{
     cursor: pointer;
     display: flex;
@@ -20,14 +21,53 @@ font-weight: 600;
     box-shadow: 0 3px 10px gray;
     background-color: #FFFFFF;
     border-radius: 10px;
-    padding-top: 0.75rem;
     border-style: solid;
     border-width: medium;
     border-color: #F0F0F0;
 }
 
+.card-feature{
+    position: absolute;
+    display: flex;
+    cursor: ${props => props.labelType ? "pointer" : "default"};
+    width: 3rem;
+    height: 3rem;
+    background-color: ${props => props.labelType ? "#ED1614" : "#FDD23C"};
+    border-radius:100%;
+    align-items: center;
+    justify-content:center;
+    font-size: 2rem;
+    margin-right: ${props => props.labelType ? "0" : "1rem"};
+    margin-left: ${props => props.labelType ? "3rem" : "0"};
+    margin-top: ${props => props.labelType ? "-0.5rem" : "0.5rem"};
+    border-style: ${props => props.labelType ? "solid" : null};
+    border-width: ${props => props.labelType ? "medium" : null};
+    border-color: ${props => props.labelType ? "#ED1614" : null} ;
+}
+
+.card-feature:hover{
+    border-color: ${props => props.labelType ? "black" : null};
+}
+
+
+.card-feature:active{
+    opacity: ${props => props.labelType ? "0.5" : 1};
+}
+
+.trash-icon{
+    width:  1.5rem;
+    heigh:  1.5rem;
+}
+
+.card-feature-container{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+   
+}
+
 .card-body:hover {
-    border-color: #FDD23C;
+    border-color: #88B6FB;
 }
 
 .card-body:active {
@@ -82,6 +122,21 @@ font-weight: 600;
     .card-labels{
         margin-left: 0.55rem;
     }
+
+    .card-feature{
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.75rem;
+        margin-right: ${props => props.labelType ? "0" : "0.75rem"};
+        margin-left: ${props => props.labelType ? "2rem" : "0"};
+        margin-top: ${props => props.labelType ? "-0.2rem" : "0.4rem"};
+    }
+    
+
+    .trash-icon{
+        width:  1.5rem;
+        heigh:  1.5rem;
+    }
 }   
 
 @media(max-width: 769px){
@@ -102,6 +157,22 @@ font-weight: 600;
 
     .card-labels{
         margin-left: 0.45rem;
+    }
+
+    .card-feature{
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.5rem;
+        margin-right: ${props => props.labelType ? "0" : "0.75rem"};
+        margin-left: ${props => props.labelType ? "2rem" : "0"};
+        margin-top: ${props => props.labelType ? "-0.2rem" : "0.4rem"};
+    }
+    
+    .card-feature-container{
+    }
+    .trash-icon{
+        width:  1.25rem;
+        heigh:  1.25rem;
     }
 }   
 
@@ -124,6 +195,20 @@ font-weight: 600;
 
     .card-labels{
         margin-left: 0.35rem;
+    }
+
+    .card-feature{
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1rem;
+        margin-right: ${props => props.labelType ? "0" : "0.5rem"};
+        margin-left: ${props => props.labelType ? "2rem" : "0"};
+        margin-top: ${props => props.labelType ? "-0.3rem" : "0.2rem"};
+    }
+
+    .trash-icon{
+        width:  1rem;
+        heigh:  1rem;
     }
 }    
 `

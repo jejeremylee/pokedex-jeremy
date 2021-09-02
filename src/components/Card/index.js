@@ -5,16 +5,29 @@ import { CardContainer, LoadingCard } from "./style.js";
 import Label from "../Label";
 import { formatName } from "../../utils/name_format";
 import { GET_POKEMON_DETAILS } from '../../utils/queries';
+import trashIcon from '../../assets/images/trash-whites.svg'
 
 
 export default function Card(props){
 
-
        const history = useHistory();
-       const {pokemonName, pokemonImg}= props;
+       const {pokemonName, pokemonImg, pokemonLabel, handleRemovePokemon}= props;
+       
        let overLoaded = false;
+       let label = pokemonLabel;
+       let labelType = "nickname";
+       let owned = 0;
+       let pokemonInStorage = JSON.parse(localStorage.getItem("myPokemons"));
 
 
+       if(pokemonInStorage !== null){
+              pokemonInStorage.map((pokemon)=>{
+                     if(pokemon[0].name === pokemonName){
+                            owned = owned+1;
+                     }
+                     return owned;
+              })
+       }
        
        const { loading, error, data } = useQuery(GET_POKEMON_DETAILS, {
               variables: {
@@ -38,9 +51,24 @@ export default function Card(props){
        if(pokeNameUpper.length>11){
               overLoaded = true;
        }
+
+       if(!label){
+              label = data.pokemon.types; 
+              labelType = null;
+       }
        
        return(
-        <CardContainer overLoaded={overLoaded}>
+        <CardContainer overLoaded={overLoaded} labelType={labelType}>
+                <div className="card-feature-container">
+                     { labelType === "nickname"
+                            ?
+                                   <div className="card-feature" onClick={()=> handleRemovePokemon(label[0].type.name)}>
+                                          <img alt="remove-pokemon" src={trashIcon} className="trash-icon"></img>
+                                   </div>
+                            :
+                                   <div className="card-feature"> {owned}</div>
+                     }      
+                     </div>
               <div className="card-body" onClick={() => handleClick(pokemonName)}>
                      <img alt={pokemonName} src={pokemonImg} className="card-image"/>
                      <div className="card-desc">
@@ -48,9 +76,12 @@ export default function Card(props){
                                    {pokeNameUpper}
                             </div>
                             <div className="card-labels">
+                                   {
+
+                                   }
                             {
-                                   data.pokemon.types.map((element, i) => (
-                                          <Label key={i} data={element.type.name} />
+                                   label.map((element, i) => (
+                                          <Label key={i} data={element.type.name} labelType={labelType}/>
                                    ))
                             }
                             </div>

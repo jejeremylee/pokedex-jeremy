@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {PaginationContainer} from "./style"
-import prevArrow from '../../assets/image/left-arrow.svg'
-import nextArrow from '../../assets/image/right-arrow.svg'
+import prevArrow from '../../assets/images/left-arrow.svg'
+import nextArrow from '../../assets/images/right-arrow.svg'
 
 
 export default function Pagination(props){
@@ -19,11 +19,11 @@ export default function Pagination(props){
         setCurrentPage(pageNumber);
     };
     
-    function handlePrev(){
+    const handlePrev = () =>{
         setCurrentSection(currentSection-10);
     }
 
-    function handleNext(){
+    const handleNext = () =>{
         setCurrentSection(currentSection+10);
     }
 
@@ -49,15 +49,22 @@ export default function Pagination(props){
 
                  {
                      paginationSection.map((num, i) =>{
-                        return <button key={i+1} onClick={(e) => changePage(num)} className="pagination-number">
-                                {num}
-                            </button>
+                        if(num===1){
+                            return <button key={i+1} onClick={(e) => changePage(num)} className="pagination-number" autoFocus={true}>
+                                        {num}
+                                    </button>
+                        }
+                        else{
+                            return <button key={i+1} onClick={(e) => changePage(num)} className="pagination-number">
+                                    {num}
+                                </button>
+                        }
                      })
                  }
 
                    
                 {
-                currentSection === pageNumbers.length-10
+                currentSection >= pageNumbers.length-10
                 ?  
                     <button onClick={()=> handleNext()} className="pagination-next-container" disabled>
                         <img alt="next" src={nextArrow} className="pagination-next" />

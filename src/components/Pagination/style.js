@@ -21,23 +21,28 @@ export const PaginationContainer = styled.div`
     }
 
     .pagination-number:hover{
-        color:#ED1614;
+        color:#FA3C4C;
     }
      
     .pagination-number:focus{
-        color:#ED1614;
+        color:#FA3C4C;
+    }
+
+    .pagination-number:autofocus{
+        color:#FA3C4C;
     }
 
     .pagination-previous-container{
         background-color: Transparent;
         border: none;
         cursor: pointer;
-        outline:none;
+        outline: none;
         margin-right: 1rem;
     }
 
     .pagination-previous-container:disabled img{
         opacity:0.5;
+        display: inherit;
     }
 
     .pagination-previous{
