@@ -13,13 +13,24 @@ export default function FormDialog(props) {
   const {pokemonName, buttonImg, pokemon, pokemonImg} = props;
 
   const handleClickOpen = () => {
-    setOpen(true);
+    const probs = probabilityCatch()
+    if(probs ===  "yes"){
+        setOpen(true);
+    }
+    else{
+        alert('Oh no the pokemon sucessfully escape!');
+    }
   };
 
   const handleClose = () => {
     setOpen(false);
   };
   
+  const probabilityCatch = () => { 
+    const prob = ["yes", "no"];
+    const random = Math.floor(Math.random() * prob.length);
+    return prob[random]
+}
 
   const handleSubmit = (pokemon,pokemonImg, nickName) =>{
     if(nickName.length === 0){
