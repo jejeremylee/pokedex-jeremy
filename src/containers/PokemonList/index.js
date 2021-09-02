@@ -11,17 +11,20 @@ import { GET_POKEMONS } from '../../utils/queries';
 export default function PokemonList(){
     
     const [currentPage, setCurrentPage] = useState(1);
-    const [cardsPerPage] = useState(8);
+    const [cardsPerPage] = useState(12);
 
 
     const { loading, error, data } = useQuery(GET_POKEMONS,{
         variables: {
-          limit: 32,
+          limit: 360,
           offset:0,
       }
       });
   
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <PokemonListPageContainer>
+             <NavBar/>
+            <p>Loading...</p>;
+        </PokemonListPageContainer>;
     if (error) return <p>Error :(</p>;
 
     const cards = Object.entries(data.pokemons.results);
@@ -30,16 +33,13 @@ export default function PokemonList(){
     const firstCardsIndex = lastCardsIndex - cardsPerPage;
     const currentCardInPage = cards.slice(firstCardsIndex, lastCardsIndex);
     
-    const changePage = (pageNumber) =>{ 
-        setCurrentPage(pageNumber);
-    };
 
     return(
         <PokemonListPageContainer>
             <NavBar/>
             <div className="page-container">
                 <div className="pagination-container">
-                    <Pagination cardsPerPage={cardsPerPage} totalCards={cards.length} changePage={changePage}/>
+                    <Pagination cardsPerPage={cardsPerPage} totalCards={cards.length} setCurrentPage={setCurrentPage}/>
                 </div>
                 <div className="card-container">    
                 { 

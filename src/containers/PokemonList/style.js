@@ -11,10 +11,9 @@ export const PokemonListPageContainer = styled.div`
 .pagination-container{
      margin-top: 4rem;
 }
-
 .card-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 27px;
     grid-row-gap: 27px;
     margin-top: 1rem;

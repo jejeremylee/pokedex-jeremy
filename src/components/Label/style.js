@@ -6,8 +6,8 @@ font-weight: 600;
 background-color:${props => props.color ? props.color : "#88B6FB"};
 border-radius: 10px;
 display: flex;
-width: ${props => props.labelType ? "auto" : "5.85rem"};
-height: 2.75rem;
+width: ${props => props.labelType ? "auto" : "5rem"};
+height: 2.5rem;
 
 align-items: center;
 justify-content: center;

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+
+export const LoadingCard = styled.div`
+    font-weight: bold;
+
+`
+
 export const CardContainer = styled.div`
 
 font-weight: 600;
@@ -44,7 +50,7 @@ font-weight: 600;
 }
 
 .card-title{
-    font-size: 2.5rem;
+    font-size: ${props => props.overLoaded ? "1.6rem" : "2.5rem"};
     margin-left: 0.9rem;
 }
 
@@ -69,7 +75,7 @@ font-weight: 600;
     }
 
     .card-title{
-        font-size: 2rem;
+        font-size: ${props => props.overLoaded ? "1.4rem" : "2rem"};
         margin-left: 0.75rem;
     }
 
@@ -90,7 +96,7 @@ font-weight: 600;
     }
 
     .card-title{
-        font-size: 1.75rem;
+        font-size: ${props => props.overLoaded ? "1.1rem" : "1.75rem"};
         margin-left: 0.65rem;
     }
 
@@ -112,7 +118,7 @@ font-weight: 600;
     }
 
     .card-title{
-        font-size: 1.5rem;
+        font-size: ${props => props.overLoaded ? "0.9rem" : "1.5rem"};
         margin-left: 0.45rem;
     }
 
