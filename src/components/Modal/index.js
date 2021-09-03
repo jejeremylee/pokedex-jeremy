@@ -18,7 +18,7 @@ export default function FormDialog(props) {
         setOpen(true);
     }
     else{ 
-        alert('Oh no the pokemon sucessfully escape!');
+        alert('Oh no the pokemon has sucessfully escaped!');
     }
   };
 

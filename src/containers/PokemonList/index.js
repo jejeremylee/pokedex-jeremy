@@ -24,7 +24,7 @@ export default function PokemonList(){
   
     if (loading) return <PokemonListPageContainer>
              <NavBar/>
-            <p>Loading...</p>;
+            <p>Loading...</p>
         </PokemonListPageContainer>;
     if (error) return <p>Error :(</p>;
 

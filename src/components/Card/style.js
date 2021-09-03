@@ -184,7 +184,7 @@ export const CardContainer = styled.div`
         }
 
         .card-image{
-            margin-bottom: 0.5rem;
+            margin-bottom: ${props => props.overLoaded ? "0.5rem" : "0rem"};
             width: 4rem;
         }
 
