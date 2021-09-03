@@ -34,24 +34,23 @@ export default function MyPokemonList(){
     const lastCardsIndex = currentPage * cardsPerPage;
     const firstCardsIndex = lastCardsIndex - cardsPerPage;
 
-    if(myPokemons.length !== 0){
+    if(myPokemons !== null){
         currentCardInPage = myPokemons.slice(firstCardsIndex, lastCardsIndex);
     }
-
+    
     return(
         <MyPokemonListPageContainer>
             <NavBar/>
-            <div className="page-container">
+            <div className="page-container">   
                 <div className="pagination-container">
-                    { myPokemons.length !== 0
+                { currentCardInPage.length !== 0
                     ?
-                    <Pagination cardsPerPage={cardsPerPage} totalCards={myPokemons.length} setCurrentPage={setCurrentPage}/>
+                    <Pagination cardsPerPage={cardsPerPage} totalCards={myPokemons.length} setCurrentPage={setCurrentPage} />
                     :
-                        null
-                    }
+                    null
+                }
                 </div>
-                
-                    { currentCardInPage.length !== 0
+                    { currentCardInPage.length !== 0 
                     ?
                     <div className="card-container">{
                         currentCardInPage.map((pokemon, i) =>{
@@ -63,11 +62,13 @@ export default function MyPokemonList(){
                         })
                         }
                     </div> 
+                    
                     :
                     <div className="no-pokemons-container">
                         <img alt="remove-pokemon" src={PokeBallEmpty} className="pokeball-empty"></img>
                         You haven't catch any pokemons yet!
                     </div>
+                  
                     }
 
             </div>

@@ -41,8 +41,6 @@ export default function PokemonDetail(props){
     if (error) return <p>Error :(</p>;
 
     const pokeNameUpper = formatName(data.pokemon.name);
-
-    console.log(data.pokemon.moves.length)
     
    
     let moveLength = data.pokemon.moves.length;
