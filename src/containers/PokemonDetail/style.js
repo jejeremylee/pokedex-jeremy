@@ -14,13 +14,13 @@ export const PokemonDetailPageContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     background-color: Transparent;
     border: none;
     cursor: pointer;
-    outline:none;
-    margin: 2rem;
+    outline: none;
+    margin: 1rem;
 }
 
 .back-button:active {
@@ -32,12 +32,12 @@ export const PokemonDetailPageContainer = styled.div`
   }
 
 .right-arrow-back-button{
-    width: 2.5rem;
+    width: 2rem;
     margin-right: 1rem;
 }
 
 .image-container{
-    width: 20rem;
+    width: 15rem;
     margin-bottom: 1rem;
 }
 
@@ -49,7 +49,7 @@ export const PokemonDetailPageContainer = styled.div`
 }
 
 .pokemon-name{
-    font-size: 6rem;
+    font-size: 3.5rem;
     font-weight: bold;
 }
 
@@ -66,7 +66,7 @@ export const PokemonDetailPageContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: 900;
     background-color: Transparent;
     border: none;
@@ -76,7 +76,7 @@ export const PokemonDetailPageContainer = styled.div`
 }
 
 .pokeball-catch-button{
-    width: 7rem;
+    width: 6rem;
 }
 
 .catch-button:active {
@@ -93,7 +93,7 @@ export const PokemonDetailPageContainer = styled.div`
     justify-content:flex-start;
     align-items:flex-start;
     width: 75%;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
@@ -119,20 +119,21 @@ export const PokemonDetailPageContainer = styled.div`
 @media (max-width: 1025px){
 
     .back-button{   
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 600;
-        margin: 1.5rem;
+        margin: 1rem;
     }
+
     .right-arrow-back-button{
-        width: 2rem;
-        margin-right: 1rem;
+        width: 1.5rem;
+        margin-right: 0.5rem;
     }
 
     .pokemon-name{
-        font-size: 4.5rem;
+        font-size: 3.5rem;
     }
     .pokeball-catch-button{
-        width: 6rem;
+        width: 5rem;
     }
 
     .catch-button{   
@@ -141,7 +142,7 @@ export const PokemonDetailPageContainer = styled.div`
     }
 
     .move-container{
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .moves-list{

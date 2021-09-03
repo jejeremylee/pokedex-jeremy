@@ -100,7 +100,7 @@ export const PaginationContainer = styled.div`
         margin-bottom: 1rem;
 
         .pagination-number{
-            font-size: 1rem;
+            font-size: 0.5rem;
             font-weight: bold;
         }
 

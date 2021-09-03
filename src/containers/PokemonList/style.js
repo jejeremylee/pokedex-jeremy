@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const PokemonListPageContainer = styled.div`
+
 .page-container {
     display: flex;
     flex-direction: column;
@@ -20,6 +21,20 @@ export const PokemonListPageContainer = styled.div`
     margin-bottom: 2rem;
 }
 
+.no-pokemons-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.no-pokemons-container img{
+    width: 20rem;
+    height: 20rem;
+    margin-bottom: 2rem;
+}
 @media (max-width: 1025px){
     .pagination-container{
         margin-top: 3rem;
@@ -31,6 +46,17 @@ export const PokemonListPageContainer = styled.div`
         grid-row-gap: 18px;
         margin-top: 1rem;
         margin-bottom: 2rem;
+    }
+
+    .no-pokemons-container{
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    
+    .no-pokemons-container img{
+        width: 15rem;
+        height: 15rem;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -46,6 +72,17 @@ export const PokemonListPageContainer = styled.div`
         margin-top: 1rem;
         margin-bottom: 2rem;
     }
+
+    .no-pokemons-container{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .no-pokemons-container img{
+        width: 10rem;
+        height: 10rem;
+        margin-bottom: 1rem;
+    }
 }
 
 @media(max-width: 429px){
@@ -60,6 +97,17 @@ export const PokemonListPageContainer = styled.div`
         grid-row-gap: 16px;
         margin-top: 1rem;
         margin-bottom: 2rem;
+    }
+
+    .no-pokemons-container{
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    
+    .no-pokemons-container img{
+        width: 5rem;
+        height: 5rem;
+        margin-bottom: 1rem;
     }
 }
 `

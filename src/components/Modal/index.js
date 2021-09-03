@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function FormDialog(props) {
   const [open, setOpen] = useState(false);
-  const [nickName, setNickName] = useState("k");
+  const [nickName, setNickName] = useState("");
   const {pokemonName, buttonImg, pokemon, pokemonImg} = props;
 
   const handleClickOpen = () => {
@@ -17,7 +17,7 @@ export default function FormDialog(props) {
     if(probs ===  "yes"){
         setOpen(true);
     }
-    else{
+    else{ 
         alert('Oh no the pokemon sucessfully escape!');
     }
   };
