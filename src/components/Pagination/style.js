@@ -100,16 +100,16 @@ export const PaginationContainer = styled.div`
         margin-bottom: 1rem;
 
         .pagination-number{
-            font-size: 0.5rem;
+            font-size: 0.6rem;
             font-weight: bold;
         }
 
         .pagination-previous{
-            width: 1rem;
+            width: 0.6rem;
         }
 
         .pagination-next{
-            width: 1rem;
+            width: 0.6rem;
         }
 
         .pagination-previous-container{

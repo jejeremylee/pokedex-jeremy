@@ -14,6 +14,10 @@ export default function PokemonDetail(props){
     const history = useHistory();
     const { name } = useParams()
 
+
+    let fillGap = false;
+    let overLoaded = false;
+
     const fetchLocalStorage = () => {
         
         if (localStorage.getItem("myPokemons")===null) {
@@ -38,12 +42,26 @@ export default function PokemonDetail(props){
 
     const pokeNameUpper = formatName(data.pokemon.name);
 
+    console.log(data.pokemon.moves.length)
+    
+   
+    let moveLength = data.pokemon.moves.length;
+
+    if(moveLength < 10){
+        fillGap = true;
+    }
+
+    if(pokeNameUpper.length>11){
+        overLoaded = true;
+    }
+
+
     const handleBack = () =>{
         history.goBack()
     }
 
     return(
-        <PokemonDetailPageContainer>
+        <PokemonDetailPageContainer fillGap={fillGap} overLoaded={overLoaded}>
             <div className="back-button-container">
                 <button className="back-button" onClick ={() => handleBack()}> 
                     <img src={LeftArrow} alt="back" className="right-arrow-back-button"/>
@@ -58,9 +76,9 @@ export default function PokemonDetail(props){
                     </div>
                     <div className="pokemon-labels">
                     {
-                        data.pokemon.types.map((element, i) => (
-                            <Label key={i} data={element.type.name} />
-                            ))
+                        data.pokemon.types.map((element, i) => {
+                           return <Label key={i} data={element.type.name} />
+                        })
                     }
                     </div>
                 </div>
@@ -70,13 +88,18 @@ export default function PokemonDetail(props){
                 <div className="move-container">
                     Moves
                     <div className="moves-section">
+                    { data.pokemon.moves.length !== 0
+                    ?
                         <div className="moves-list">
                         {
-                        data.pokemon.moves.map((element, i) => (
-                            <Label key={i} data={element.move.name} labelType="Move" />
-                            ))
+                        data.pokemon.moves.map((element, i) => {
+                            return <Label key={i} data={element.move.name} labelType="Move" />
+                        })
                     }
                         </div>
+                        :
+                        <div className="move-unknown">This Pokemon moves is unkown</div>
+                        }
                     </div>
                 </div>
             </div>

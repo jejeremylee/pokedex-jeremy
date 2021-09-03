@@ -39,7 +39,7 @@ export default function FormDialog(props) {
     else{
         const pokemonsInStorage = JSON.parse(localStorage.getItem("myPokemons"));
         if(pokemonsInStorage.length !== 0){
-            let nicknameChecker = pokemonsInStorage.filter((pokemon) => pokemon[1] === nickName);
+            let nicknameChecker = pokemonsInStorage.filter((pokemon) => pokemon[1].toLowerCase() === nickName.toLowerCase());
             if(nicknameChecker.length !== 0){
                 alert('Nickname already used by other pokemon, please give another nickname!');
             }
@@ -49,6 +49,7 @@ export default function FormDialog(props) {
             
                 let appendPayload = [...pokemonInStorage, pokemonData];
                 localStorage.setItem('myPokemons', JSON.stringify(appendPayload));
+                handleClose();
             }
         }
         else{
@@ -57,9 +58,9 @@ export default function FormDialog(props) {
         
             let appendPayload = [...pokemonInStorage, pokemonData];
             localStorage.setItem('myPokemons', JSON.stringify(appendPayload));
+            handleClose();
         }
     }
-    handleClose();
   }
 
   return (

@@ -38,8 +38,6 @@ export default function MyPokemonList(){
         currentCardInPage = myPokemons.slice(firstCardsIndex, lastCardsIndex);
     }
 
-    console.log(myPokemons);
-
     return(
         <MyPokemonListPageContainer>
             <NavBar/>
